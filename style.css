@@ -108,3 +108,57 @@ body {
     box-shadow: var(--shadow);
 }
 
+/* Filter Section */
+.filter-section {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 2px solid var(--green-200);
+    background: var(--white);
+    color: var(--green-700);
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--green-500);
+    color: var(--white);
+    border-color: var(--green-500);
+}
+
+/* Stats Section */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-item {
+    background: var(--light-green);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--green-200);
+}
+
+.stat-item span:first-child {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--green-700);
+    margin-bottom: 5px;
+}
+
+.stat-item span:last-child {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
