@@ -59,3 +59,52 @@ body {
     opacity: 0.9;
     font-size: 1.1rem;
 }
+
+/* Todo Container */
+.todo-container {
+    padding: 30px;
+}
+
+/* Input Section */
+.input-section {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+#taskInput {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid var(--green-200);
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#taskInput:focus {
+    border-color: var(--green-500);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+#addTaskBtn {
+    background: linear-gradient(135deg, var(--green-500) 0%, var(--green-600) 100%);
+    color: var(--white);
+    border: none;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#addTaskBtn:hover {
+    background: linear-gradient(135deg, var(--green-600) 0%, var(--green-700) 100%);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
