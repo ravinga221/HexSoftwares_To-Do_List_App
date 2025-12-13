@@ -287,3 +287,29 @@ body {
     margin-bottom: 10px;
     color: var(--text-dark);
 }
+
+/* Actions Section */
+.actions-section {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.action-btn {
+    padding: 12px 20px;
+    border: 2px solid var(--green-200);
+    background: var(--white);
+    color: var(--green-700);
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-btn:hover {
+    background: var(--green-100);
+    border-color: var(--green-300);
+}
