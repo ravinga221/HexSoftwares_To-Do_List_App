@@ -1,4 +1,13 @@
-
+class TodoApp {
+    constructor() {
+        this.tasks = JSON.parse(localStorage.getItem('greenTask-todos')) || [];
+        this.currentFilter = 'all';
+        
+        this.initializeElements();
+        this.bindEvents();
+        this.render();
+    }
+}
 
 
 // Initialize the app when DOM is loaded
