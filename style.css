@@ -313,3 +313,12 @@ body {
     background: var(--green-100);
     border-color: var(--green-300);
 }
+
+/* Footer */
+.app-footer {
+    background: var(--light-green);
+    padding: 20px;
+    text-align: center;
+    color: var(--text-light);
+    border-top: 1px solid var(--green-200);
+}
