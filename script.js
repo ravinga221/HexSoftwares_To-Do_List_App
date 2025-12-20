@@ -66,6 +66,24 @@ class TodoApp {
         this.render();
         this.showMessage('Task added successfully!', 'success');
     }
+
+    deleteTask(id) {
+        this.tasks = this.tasks.filter(task => task.id !== id);
+        this.saveToLocalStorage();
+        this.render();
+        this.showMessage('Task deleted!', 'success');
+    }
+
+    toggleTask(id) {
+        this.tasks = this.tasks.map(task => 
+            task.id === id ? { ...task, completed: !task.completed } : task
+        );
+        this.saveToLocalStorage();
+        this.render();
+    }
+
+    
+
 }
 
 
