@@ -44,6 +44,28 @@ class TodoApp {
         this.clearCompletedBtn.addEventListener('click', () => this.clearCompleted());
         this.clearAllBtn.addEventListener('click', () => this.clearAll());
     }
+
+    addTask() {
+        const text = this.taskInput.value.trim();
+        
+        if (text === '') {
+            this.showMessage('Please enter a task!', 'error');
+            return;
+        }
+
+        const task = {
+            id: Date.now(),
+            text: text,
+            completed: false,
+            createdAt: new Date().toISOString()
+        };
+
+        this.tasks.unshift(task);
+        this.taskInput.value = '';
+        this.saveToLocalStorage();
+        this.render();
+        this.showMessage('Task added successfully!', 'success');
+    }
 }
 
 
