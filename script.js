@@ -210,7 +210,34 @@ class TodoApp {
             justify-content: center;
         `;
 
-        
+         // Add keyframes for animation
+        if (!document.querySelector('#message-styles')) {
+            const style = document.createElement('style');
+            style.id = 'message-styles';
+            style.textContent = `
+                @keyframes slideInRight {
+                    from {
+                        transform: translateX(100%);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        document.body.appendChild(messageEl);
+
+        // Auto remove after 3 seconds
+        setTimeout(() => {
+            if (messageEl.parentElement) {
+                messageEl.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => messageEl.remove(), 300);
+            }
+        }, 3000);
     }
 
 }
