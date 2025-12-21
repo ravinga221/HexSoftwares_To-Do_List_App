@@ -112,7 +112,55 @@ class TodoApp {
         }
     }
 
-    
+    getFilteredTasks() {
+        switch (this.currentFilter) {
+            case 'active':
+                return this.tasks.filter(task => !task.completed);
+            case 'completed':
+                return this.tasks.filter(task => task.completed);
+            default:
+                return this.tasks;
+        }
+    }
+
+    render() {
+        const filteredTasks = this.getFilteredTasks();
+        
+        // Update stats
+        this.updateStats();
+        
+        // Render task list
+        if (filteredTasks.length === 0) {
+            this.taskList.innerHTML = '';
+            this.emptyState.style.display = 'block';
+        } else {
+            this.emptyState.style.display = 'none';
+            this.taskList.innerHTML = filteredTasks.map(task => `
+                <li class="task-item ${task.completed ? 'completed' : ''}" data-id="${task.id}">
+                    <div class="task-checkbox ${task.completed ? 'checked' : ''}" 
+                         onclick="app.toggleTask(${task.id})">
+                    </div>
+                    <span class="task-text">${this.escapeHtml(task.text)}</span>
+                    <div class="task-actions">
+                        <button class="delete-btn" onclick="app.deleteTask(${task.id})" 
+                                title="Delete task">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </li>
+            `).join('');
+        }
+    }
+
+    updateStats() {
+        const total = this.tasks.length;
+        const completed = this.tasks.filter(task => task.completed).length;
+        const pending = total - completed;
+
+        this.totalTasksEl.textContent = total;
+        this.completedTasksEl.textContent = completed;
+        this.pendingTasksEl.textContent = pending;
+    }
 
 }
 
