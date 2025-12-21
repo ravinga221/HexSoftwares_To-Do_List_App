@@ -179,6 +179,38 @@ class TodoApp {
         if (existingMessage) {
             existingMessage.remove();
         }
+
+        // Add styles
+        messageEl.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: ${type === 'error' ? '#f44336' : type === 'success' ? '#4CAF50' : '#2196F3'};
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+            animation: slideInRight 0.3s ease;
+            max-width: 400px;
+        `;
+
+        messageEl.querySelector('button').style.cssText = `
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        `;
+
+        
     }
 
 }
