@@ -162,6 +162,25 @@ class TodoApp {
         this.pendingTasksEl.textContent = pending;
     }
 
+    saveToLocalStorage() {
+        localStorage.setItem('greenTask-todos', JSON.stringify(this.tasks));
+    }
+
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    showMessage(message, type) {
+
+         // Remove existing message
+        const existingMessage = document.querySelector('.message-toast');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+    }
+
 }
 
 
