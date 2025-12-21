@@ -82,6 +82,36 @@ class TodoApp {
         this.render();
     }
 
+    clearCompleted() {
+        const completedCount = this.tasks.filter(task => task.completed).length;
+        
+        if (completedCount === 0) {
+            this.showMessage('No completed tasks to clear!', 'info');
+            return;
+        }
+
+        if (confirm(`Are you sure you want to clear ${completedCount} completed task(s)?`)) {
+            this.tasks = this.tasks.filter(task => !task.completed);
+            this.saveToLocalStorage();
+            this.render();
+            this.showMessage('Completed tasks cleared!', 'success');
+        }
+    }
+
+    clearAll() {
+        if (this.tasks.length === 0) {
+            this.showMessage('No tasks to clear!', 'info');
+            return;
+        }
+
+        if (confirm('Are you sure you want to clear ALL tasks? This action cannot be undone.')) {
+            this.tasks = [];
+            this.saveToLocalStorage();
+            this.render();
+            this.showMessage('All tasks cleared!', 'success');
+        }
+    }
+
     
 
 }
